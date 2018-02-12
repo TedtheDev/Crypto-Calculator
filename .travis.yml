@@ -1,3 +1,8 @@
+sudo: required
+
+services:
+  - docker
+
 language: node_js
 node_js:
   - "node"
@@ -6,9 +11,28 @@ node_js:
   - "7"
   - "6"
 
+script:
+  - npm install
+  - npm build
+
 cache:
   directories:
     - "node_modules"
+
+after_script:
+  - docker build -t tedthedev/crypto-calculator:latest .
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker push tedthedev/crypto-calculator:latest
+
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: "secreate api key"
+  app: crypto-calculator-dev
+  run:
+    - 
+
 
 # safelist
 branches:
