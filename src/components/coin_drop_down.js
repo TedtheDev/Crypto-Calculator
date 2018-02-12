@@ -3,16 +3,26 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 
 function renderCoins(coins) {
-    coins.sort();
+    // Sort currency name alphabetically
+    coins.sort((a,b) => {
+        a = a.name.toUpperCase();
+        b = b.name.toUpperCase();
+        if(a < b) {
+            return -1
+        } else if (a > b) {
+            return 1
+        }
+
+        return 0;
+    });
 
     const coinOptions = coins.map((coin, index) => {
-        return { key: index, value: coin.charAt(0).toUpperCase() + coin.slice(1), text: coin.charAt(0).toUpperCase() + coin.slice(1)}
+        return { key: index, value: coin.id, text: coin.name}
     });
     
-    console.log(coinOptions)
     return (
         <div>
-            <Dropdown placeholder='Select Currency' fluid search selection options={coinOptions} />
+            <Dropdown placeholder='Select Crypto' fluid search selection options={coinOptions} />
         </div>
     )
 };
@@ -24,5 +34,8 @@ const CoinDropDown = ({ coins }) => {
     )
 };
 
+CoinDropDown.propTypes = {
+    coins: PropTypes.array.isRequired
+};
 
 export default CoinDropDown;

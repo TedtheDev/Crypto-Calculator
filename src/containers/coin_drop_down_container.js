@@ -14,7 +14,7 @@ class CoinDropDownContainer extends Component {
         axios.get('https://api.coinmarketcap.com/v1/ticker/')
             .then((response) => {
                 const coins = response.data.map((coin) => {
-                    return coin.id;
+                    return {name: coin.name, id: coin.id};
                 });
 
                 this.setState({coins})
