@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Tyler Edmunds
+Copyright (c) 2018 Tyler Edmunds
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
