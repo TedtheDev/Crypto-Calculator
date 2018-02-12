@@ -1,12 +1,15 @@
 language: node_js
 node_js:
-  - "iojs"
+  - "node"
   - "lts/*"
+  - "8"
+  - "7"
+  - "6"
 
 cache:
   directories:
     - "node_modules"
-    
+
 # safelist
 branches:
   only:
