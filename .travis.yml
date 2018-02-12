@@ -13,7 +13,7 @@ node_js:
 
 script:
   - npm install
-  - npm build
+  - npm run build
 
 cache:
   directories:
@@ -26,13 +26,6 @@ after_script:
 
 deploy:
   skip_cleanup: true
-  provider: heroku
-  api_key:
-    secure: "secreate api key"
-  app: crypto-calculator-dev
-  run:
-    - 
-
 
 # safelist
 branches:
