@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build:production": "webpack -p",
-    "build": "webpack",
+    "build": "npm run test && npm run build:production",
     "serve": "webpack-dev-server --hot --inline"
   },
   "repository": {
