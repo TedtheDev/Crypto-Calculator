@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "build:production": "webpack -p",
     "build": "npm run test && npm run build:production",
     "serve": "webpack-dev-server --hot --inline"
@@ -35,6 +36,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.0.4",
+    "react-test-renderer": "^16.2.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
   }
