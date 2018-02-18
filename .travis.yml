@@ -20,17 +20,12 @@ cache:
     - "node_modules"
 
 after_script:
-  branches:
-    only:
-      - master
-  - docker build -t tedthedev/crypto-calculator:latest .
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - docker push tedthedev/crypto-calculator:latest
+  if [ "$TRAVIS_BRANCH" = "master"]; then
+    docker build -t tedthedev/crypto-calculator:latest .;
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push tedthedev/crypto-calculator:latest;
+  fi
+  
 
 deploy:
   skip_cleanup: true
-
-  # safelist
-  branches:
-    only:
-      - master
