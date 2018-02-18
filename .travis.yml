@@ -13,7 +13,7 @@ node_js:
 
 script:
   - npm install
-  - npm run build
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run build
 
 cache:
   directories:
@@ -27,8 +27,7 @@ after_script:
 deploy:
   skip_cleanup: true
 
-# safelist
-branches:
-  only:
-    - master
-    - development
+  # safelist
+  branches:
+    only:
+      - master
