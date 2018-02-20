@@ -31,6 +31,14 @@ after_script:
       docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
       docker push tedthedev/crypto-calculator:dev;
     fi
+
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then
+      bash travis_scripts/deploy.sh development;
+    fi
+
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then
+      bash travis_scripts/deploy.sh production;
+    fi
   
 
 #deploy:
