@@ -8,7 +8,8 @@
     "test:watch": "jest --watch",
     "build:production": "webpack -p",
     "build": "npm run test && npm run build:production",
-    "serve": "webpack-dev-server --hot --inline"
+    "serve": "webpack-dev-server --hot --inline",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
