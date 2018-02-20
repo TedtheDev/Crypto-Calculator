@@ -34,11 +34,10 @@ after_script:
   
 
 deploy:
-  - skip_cleanup: true
-  - provider: script
-    script: bash travis_scripts/deploy.sh development
-    on:
-      branch: development
+  provider: script
+  script: bash travis_scripts/deploy.sh development
+  on:
+    branch: develop
   # deploy master to production
   #- provider: script
     #script: bash travis_scripts/deploy.sh production
