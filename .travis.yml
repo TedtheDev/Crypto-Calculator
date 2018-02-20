@@ -33,11 +33,11 @@ after_script:
     fi
 
   - if [ "$TRAVIS_BRANCH" = "development" ]; then
-      bash travis_scripts/deploy.sh development;
+      bash travis_scripts/deploy_heroku.sh development;
     fi
 
   - if [ "$TRAVIS_BRANCH" = "master" ]; then
-      bash travis_scripts/deploy.sh production;
+      bash travis_scripts/deploy_heroku.sh production;
     fi
   
 
