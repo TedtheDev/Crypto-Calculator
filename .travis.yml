@@ -13,19 +13,34 @@ node_js:
 
 script:
   - npm install
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run build
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run build; fi
 
 cache:
   directories:
     - "node_modules"
 
 after_script:
-  if [ "$TRAVIS_BRANCH" = "master"]; then
-    docker build -t tedthedev/crypto-calculator:latest .;
-    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-    docker push tedthedev/crypto-calculator:latest;
-  fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then
+      docker build -t tedthedev/crypto-calculator:latest .;
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+      docker push tedthedev/crypto-calculator:latest;
+    fi
+  
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then
+      docker build -t tedthedev/crypto-calculator:dev .;
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+      docker push tedthedev/crypto-calculator:dev;
+    fi
   
 
 deploy:
   skip_cleanup: true
+  - provider: script
+    script: bash travis_scripts/deploy.sh development
+    on:
+      branch: development
+  # deploy master to production
+  #- provider: script
+    #script: bash travis_scripts/deploy.sh production
+    #on:
+      #branch: master
