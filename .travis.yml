@@ -13,7 +13,7 @@ node_js:
 
 script:
   - npm install
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then npm run build; fi
+  - npm run build
 
 cache:
   directories:
