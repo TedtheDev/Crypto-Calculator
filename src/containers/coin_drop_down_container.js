@@ -1,7 +1,12 @@
 import React, { component, Component } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import CoinDropDown from '../components/coin_drop_down';
+
+const Wrapper = styled.div`
+    grid-area: content;
+`;
 
 class CoinDropDownContainer extends Component {
     constructor(props) {
@@ -27,7 +32,9 @@ class CoinDropDownContainer extends Component {
         const { coins } = this.state;
 
         return (
-            <CoinDropDown coins={coins}/>
+            <Wrapper>
+                <CoinDropDown coins={coins}/>
+            </Wrapper>
         )
     }
 };

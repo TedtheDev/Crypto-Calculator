@@ -34,9 +34,7 @@ const Div = styled.div`
 
 const CoinDropDown = ({ coins }) => {
     return (
-        <Div>
-            {renderCoins(coins)}
-        </Div>
+        renderCoins(coins)
     )
 };
 
