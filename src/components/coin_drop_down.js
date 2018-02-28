@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 function renderCoins(coins) {
     // Sort currency name alphabetically
@@ -27,10 +28,15 @@ function renderCoins(coins) {
     )
 };
 
+const Div = styled.div`
+    grid-area: content;
+`;
 
 const CoinDropDown = ({ coins }) => {
     return (
-        renderCoins(coins)
+        <Div>
+            {renderCoins(coins)}
+        </Div>
     )
 };
 
