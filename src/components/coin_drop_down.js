@@ -28,10 +28,6 @@ function renderCoins(coins) {
     )
 };
 
-const Div = styled.div`
-    grid-area: content;
-`;
-
 const CoinDropDown = ({ coins }) => {
     return (
         renderCoins(coins)
