@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-function renderCoins(coins) {
+function renderCoins(coins, onChangeCoinDropDown) {
     // Sort currency name alphabetically
     coins.sort((a,b) => {
         a = a.name.toUpperCase();
@@ -23,14 +23,14 @@ function renderCoins(coins) {
     
     return (
         <div>
-            <Dropdown placeholder='Select Crypto' fluid search selection options={coinOptions} />
+            <Dropdown placeholder='Select Crypto' fluid search selection options={coinOptions} onChange={onChangeCoinDropDown}/>
         </div>
     )
 };
 
-const CoinDropDown = ({ coins }) => {
+const CoinDropDown = ({ coins, onChangeCoinDropDown }) => {
     return (
-        renderCoins(coins)
+        renderCoins(coins, onChangeCoinDropDown)
     )
 };
 

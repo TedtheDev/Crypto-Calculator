@@ -9,10 +9,11 @@ const Wrapper = styled.div`
 `;
 
 class CoinDropDownContainer extends Component {
+
     render() {
         return (
             <Wrapper>
-                <CoinDropDown coins={this.props.coins}/>
+                <CoinDropDown coins={this.props.coins} onChangeCoinDropDown={this.props.onChangeCoinDropDown} />
             </Wrapper>
         )
     }

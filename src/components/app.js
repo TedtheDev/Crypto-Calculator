@@ -25,7 +25,9 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { coins: [] };
+        this.state = { coins: [], addedCoins: [{}] };
+
+        this.addCurrency = this.addCurrency.bind(this);
     }
 
     componentDidMount() {
@@ -40,13 +42,21 @@ export default class App extends Component {
         .catch((err) => console.log(err));
     }
 
+    addCurrency(selectedCurrency) {
+        console.log(selectedCurrency)
+        const filteredCoins = this.state.coins.filter(coin => coin !== selectedCurrency);
+        let addedCoins = this.state.addedCoins;
+        addedCoins.push({selectedCurrency: selectedCurrency})
+        this.setState({ coins: filteredCoins, addedCoins: addedCoins});
+    }
+
     render() {
         const { coins } = this.state;
 
         return (
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
-                <SelectCurrencyContainer coins={coins} />
+                <SelectCurrencyContainer coins={coins} addCurrency={this.addCurrency}/>
                 <AddedCurrenciesListContainer />
             </AppDiv>
         )

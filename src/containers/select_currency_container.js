@@ -12,11 +12,25 @@ const SelectCurrencyDiv = styled.div`
 `;
 
 export default class SelectCurrencyContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { selectedCurrency: ''};
+
+
+    }
+
+    onChangeCoinDropDown(event, data) {
+        console.log(data)
+        console.log(event.target)
+        this.setState({selectedCurrency: event.target.value});
+    }
+
     render() {
         return (
             <SelectCurrencyDiv>
-                <CoinDropDownContainer coins={this.props.coins} />
-                <Button primary type="button" >Add</Button>
+                <CoinDropDownContainer coins={this.props.coins} onChangeCoinDropDown={this.onChangeCoinDropDown} />
+                <Button primary type="button" onClick={() => this.props.addCurrency(this.state.selectedCurrency)}>Add</Button>
             </SelectCurrencyDiv>
         )
     }
