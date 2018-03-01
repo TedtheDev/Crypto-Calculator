@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CoinDropDown from '../components/coin_drop_down';
 
 const Wrapper = styled.div`
-    grid-area: content;
+
 `;
 
 class CoinDropDownContainer extends Component {
