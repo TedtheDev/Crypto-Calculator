@@ -15,7 +15,7 @@ export default class SelectCurrencyContainer extends Component {
     render() {
         return (
             <SelectCurrencyDiv>
-                <CoinDropDownContainer />
+                <CoinDropDownContainer coins={this.props.coins} />
                 <Button primary type="button" >Add</Button>
             </SelectCurrencyDiv>
         )

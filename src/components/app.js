@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 import CoinDropDownContainer from '../containers/coin_drop_down_container';
 import SelectCurrencyContainer from '../containers/select_currency_container';
@@ -20,14 +21,34 @@ const Title = styled.h1`
     justify-content: center;
 `;
 
-const App = () => {
-    return (
-        <AppDiv>
-            <Title>hello from crypto calculator</Title>
-            <SelectCurrencyContainer />
-            <AddedCurrenciesListContainer />
-        </AppDiv>
-    )
-};
+export default class App extends Component {
+    constructor(props) {
+        super(props);
 
-export default App;
+        this.state = { coins: [] };
+    }
+
+    componentDidMount() {
+        axios.get('https://api.coinmarketcap.com/v1/ticker/')
+        .then((response) => {
+            const coins = response.data.map((coin) => {
+                return {name: coin.name, id: coin.id};
+            });
+
+            this.setState({coins})
+        })
+        .catch((err) => console.log(err));
+    }
+
+    render() {
+        const { coins } = this.state;
+
+        return (
+            <AppDiv>
+                <Title>hello from crypto calculator</Title>
+                <SelectCurrencyContainer coins={coins} />
+                <AddedCurrenciesListContainer />
+            </AppDiv>
+        )
+    }
+};
