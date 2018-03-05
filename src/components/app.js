@@ -25,16 +25,17 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { coins: [], addedCoins: [{}] };
+        this.state = { coins: [], addedCoins: [] };
 
         this.addCurrency = this.addCurrency.bind(this);
+        this.removeCurrency = this.removeCurrency.bind(this);
     }
 
     componentDidMount() {
         axios.get('https://api.coinmarketcap.com/v1/ticker/')
         .then((response) => {
             const coins = response.data.map((coin) => {
-                return {name: coin.name, id: coin.id};
+                return {name: coin.name, id: coin.id, price_usd: coin.price_usd};
             });
 
             this.setState({coins})
@@ -43,11 +44,15 @@ export default class App extends Component {
     }
 
     addCurrency(selectedCurrency) {
-        console.log(selectedCurrency)
-        const filteredCoins = this.state.coins.filter(coin => coin !== selectedCurrency);
+        const selectedCoin = this.state.coins.filter(coin => coin.id === selectedCurrency);
+        const filteredCoins = this.state.coins.filter(coin => coin.id !== selectedCurrency);
         let addedCoins = this.state.addedCoins;
-        addedCoins.push({selectedCurrency: selectedCurrency})
+        addedCoins.push(selectedCoin[0])
         this.setState({ coins: filteredCoins, addedCoins: addedCoins});
+    }
+
+    removeCurrency(selectedCurrency) {
+        console.log('remove currency');
     }
 
     render() {
@@ -57,7 +62,7 @@ export default class App extends Component {
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
                 <SelectCurrencyContainer coins={coins} addCurrency={this.addCurrency}/>
-                <AddedCurrenciesListContainer />
+                <AddedCurrenciesListContainer addedCoins={this.state.addedCoins} />
             </AppDiv>
         )
     }

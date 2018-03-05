@@ -17,13 +17,11 @@ export default class SelectCurrencyContainer extends Component {
 
         this.state = { selectedCurrency: ''};
 
-
+        this.onChangeCoinDropDown = this.onChangeCoinDropDown.bind(this);
     }
 
     onChangeCoinDropDown(event, data) {
-        console.log(data)
-        console.log(event.target)
-        this.setState({selectedCurrency: event.target.value});
+        this.setState({selectedCurrency: data.value});
     }
 
     render() {

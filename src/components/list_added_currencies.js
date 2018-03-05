@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Input } from 'semantic-ui-react';
+
+import AddedCurrency from './added_currency';
 
 const AddedCurrenciesListDiv = styled.div`
     grid-area: addedCurrencies;
@@ -8,14 +9,16 @@ const AddedCurrenciesListDiv = styled.div`
     grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
 `;
 
-const AddedCurrenciesList = (props) => {
+const renderCoinsList = (coins) => {
+    return (
+        coins.map((coin, index) => <AddedCurrency key={index} coin={coin} />)
+    )
+};
+
+const AddedCurrenciesList = ({addedCoins}) => {
     return(
         <AddedCurrenciesListDiv>
-            <div>Currency Name</div>
-            <Input placeholder="Enter Amount Owned"></Input>
-            <div>Price</div>
-            <div>=</div>
-            <div>Total</div>
+            {addedCoins && renderCoinsList(addedCoins)}
         </AddedCurrenciesListDiv>
     )
 }
