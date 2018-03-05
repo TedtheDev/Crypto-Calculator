@@ -1,13 +1,13 @@
 import React from 'react';
 import { Input } from 'semantic-ui-react';
 
-const AddedCurrency = ({coin}) => {
+const AddedCurrency = ({coin, amountOwned, onChangeAmountOwned}) => {
     return [
         <div>{coin.name}</div>,
-        <Input placeholder="Enter Amount Owned"></Input>,
+        <Input placeholder="Enter Amount Owned" onChange={onChangeAmountOwned} value={amountOwned.toString()}></Input>,
         <div>{coin.price_usd}</div>,
         <div>=</div>,
-        <div>{coin.price_usd * 2}</div>
+        <div>{Number(coin.price_usd) * Number(amountOwned)}</div>
     ]
 };
 

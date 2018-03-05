@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import AddedCurrency from './added_currency';
+import AddedCurrencyContainer from '../containers/added_currency_container';
 
 const AddedCurrenciesListDiv = styled.div`
     grid-area: addedCurrencies;
@@ -11,7 +11,7 @@ const AddedCurrenciesListDiv = styled.div`
 
 const renderCoinsList = (coins) => {
     return (
-        coins.map((coin, index) => <AddedCurrency key={index} coin={coin} />)
+        coins.map((coin, index) => <AddedCurrencyContainer key={index} coin={coin} />)
     )
 };
 
