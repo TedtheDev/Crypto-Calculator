@@ -11,7 +11,9 @@ export default class AddedCurrencyContainer extends Component {
     }
 
     onChangeAmountOwned(event) {
-        this.setState({amountOwned: event.target.value});
+        if(!isNaN(event.target.value)) {
+            this.setState({amountOwned: event.target.value});
+        }
     }
 
     render() {
