@@ -6,29 +6,16 @@ exports[`Coin Drop Down renders correctly 1`] = `
     aria-busy={undefined}
     aria-disabled={undefined}
     aria-expanded={false}
-    className="ui fluid search selection dropdown"
+    aria-multiselectable={true}
+    className="ui fluid multiple selection dropdown"
     onBlur={[Function]}
     onChange={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
-    role="combobox"
-    tabIndex={undefined}
+    role="listbox"
+    tabIndex={0}
   >
-    <input
-      aria-autocomplete="list"
-      autoComplete="off"
-      className="search"
-      onChange={[Function]}
-      style={
-        Object {
-          "width": undefined,
-        }
-      }
-      tabIndex={0}
-      type="text"
-      value=""
-    />
     <div
       aria-live="polite"
       className="default text"
@@ -42,9 +29,7 @@ exports[`Coin Drop Down renders correctly 1`] = `
       onClick={[Function]}
     />
     <div
-      aria-multiselectable={undefined}
       className="menu transition"
-      role="listbox"
     >
       <div
         aria-checked={false}
