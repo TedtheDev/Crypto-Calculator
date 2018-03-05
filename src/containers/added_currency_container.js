@@ -16,7 +16,12 @@ export default class AddedCurrencyContainer extends Component {
 
     render() {
         return (
-            <AddedCurrency coin={this.props.coin} amountOwned={this.state.amountOwned} onChangeAmountOwned={this.onChangeAmountOwned} />
+            <AddedCurrency 
+                coin={this.props.coin} 
+                amountOwned={this.state.amountOwned} 
+                onChangeAmountOwned={this.onChangeAmountOwned} 
+                removeCurrency={this.props.removeCurrency}
+            />
         )
     }
 }

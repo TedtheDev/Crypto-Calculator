@@ -9,16 +9,16 @@ const AddedCurrenciesListDiv = styled.div`
     grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
 `;
 
-const renderCoinsList = (coins) => {
+const renderCoinsList = (coins, removeCurrency) => {
     return (
-        coins.map((coin, index) => <AddedCurrencyContainer key={index} coin={coin} />)
+        coins.map((coin, index) => <AddedCurrencyContainer key={index} coin={coin} removeCurrency={removeCurrency} />)
     )
 };
 
-const AddedCurrenciesList = ({addedCoins}) => {
+const AddedCurrenciesList = ({addedCoins, removeCurrency}) => {
     return(
         <AddedCurrenciesListDiv>
-            {addedCoins && renderCoinsList(addedCoins)}
+            {addedCoins && renderCoinsList(addedCoins, removeCurrency)}
         </AddedCurrenciesListDiv>
     )
 }

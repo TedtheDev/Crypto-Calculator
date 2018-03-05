@@ -51,8 +51,12 @@ export default class App extends Component {
         this.setState({ coins: filteredCoins, addedCoins: addedCoins});
     }
 
-    removeCurrency(selectedCurrency) {
-        console.log('remove currency');
+    removeCurrency(removeCurrency) {
+        let coinToAddBackToList = this.state.addedCoins.filter(coin => coin.id === removeCurrency);
+        let addedCoinsUpdate = this.state.addedCoins.filter(coin => coin.id !== removeCurrency)
+        let updatedCoinList = this.state.coins;
+        updatedCoinList.push(coinToAddBackToList[0]);
+        this.setState({ coins: updatedCoinList, addedCoins: addedCoinsUpdate});
     }
 
     render() {
@@ -62,7 +66,7 @@ export default class App extends Component {
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
                 <SelectCurrencyContainer coins={coins} addCurrency={this.addCurrency}/>
-                <AddedCurrenciesListContainer addedCoins={this.state.addedCoins} />
+                <AddedCurrenciesListContainer addedCoins={this.state.addedCoins} removeCurrency={this.removeCurrency}/>
             </AppDiv>
         )
     }

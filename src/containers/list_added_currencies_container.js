@@ -4,7 +4,7 @@ import AddedCurrenciesList from '../components/list_added_currencies';
 export default class AddedCurrenciesListContainer extends Component {
     render() {
         return (
-            <AddedCurrenciesList addedCoins={this.props.addedCoins}/>
+            <AddedCurrenciesList addedCoins={this.props.addedCoins} removeCurrency={this.props.removeCurrency} />
         )
     }
 }
