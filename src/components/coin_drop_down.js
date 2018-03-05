@@ -23,7 +23,7 @@ function renderCoins(coins, onChangeCoinDropDown) {
     
     return (
         <div>
-            <Dropdown placeholder='Select Crypto' fluid search selection options={coinOptions} onChange={onChangeCoinDropDown}/>
+            <Dropdown placeholder='Select Crypto' fluid multiple selection options={coinOptions} onChange={onChangeCoinDropDown}/>
         </div>
     )
 };

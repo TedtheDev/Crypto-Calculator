@@ -43,12 +43,14 @@ export default class App extends Component {
         .catch((err) => console.log(err));
     }
 
-    addCurrency(selectedCurrency) {
-        const selectedCoin = this.state.coins.filter(coin => coin.id === selectedCurrency);
-        const filteredCoins = this.state.coins.filter(coin => coin.id !== selectedCurrency);
-        let addedCoins = this.state.addedCoins;
-        addedCoins.push(selectedCoin[0])
-        this.setState({ coins: filteredCoins, addedCoins: addedCoins});
+    addCurrency(selectedCurrencies) {
+        if(selectedCurrencies.length !== 0) {
+            const selectedCoins = this.state.coins.filter(coin => selectedCurrencies.includes(coin.id));
+            const filteredCoins = this.state.coins.filter(coin => !selectedCurrencies.includes(coin.id));
+            let addedCoins = this.state.addedCoins;
+            selectedCoins.map((coin) => addedCoins.push(coin));
+            this.setState({ coins: filteredCoins, addedCoins: addedCoins});
+        }
     }
 
     removeCurrency(removeCurrency) {
