@@ -7,7 +7,7 @@ const AddedCurrency = ({coin, amountOwned, onChangeAmountOwned, removeCurrency})
         <Input key={`${coin.name}-amount`} placeholder="Enter Amount Owned" onChange={onChangeAmountOwned} value={amountOwned.toString()}></Input>,
         <div key={`${coin.name}-price`}>{coin.price_usd}</div>,
         <div key={`${coin.name}-=`}>=</div>,
-        <div key={`${coin.name}-total`}>{Number(coin.price_usd) * Number(amountOwned)}<button onClick={() => removeCurrency(coin.id)}>Remove</button></div>
+        <div key={`${coin.name}-total`}><div>{Number(coin.price_usd) * Number(amountOwned)}</div><button onClick={() => removeCurrency(coin.id)}>Remove</button></div>
     ]
 };
 
