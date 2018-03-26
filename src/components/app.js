@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -21,55 +24,26 @@ const Title = styled.h1`
     justify-content: center;
 `;
 
-export default class App extends Component {
+class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = { coins: [], addedCoins: [] };
-
-        this.addCurrency = this.addCurrency.bind(this);
-        this.removeCurrency = this.removeCurrency.bind(this);
     }
 
     componentDidMount() {
-        axios.get('https://api.coinmarketcap.com/v1/ticker/')
-        .then((response) => {
-            const coins = response.data.map((coin) => {
-                return {name: coin.name, id: coin.id, price_usd: coin.price_usd};
-            });
-
-            this.setState({coins})
-        })
-        .catch((err) => console.log(err));
-    }
-
-    addCurrency(selectedCurrencies) {
-        if(selectedCurrencies.length !== 0) {
-            const selectedCoins = this.state.coins.filter(coin => selectedCurrencies.includes(coin.id));
-            const filteredCoins = this.state.coins.filter(coin => !selectedCurrencies.includes(coin.id));
-            let addedCoins = this.state.addedCoins;
-            selectedCoins.map((coin) => addedCoins.push(coin));
-            this.setState({ coins: filteredCoins, addedCoins: addedCoins});
-        }
-    }
-
-    removeCurrency(removeCurrency) {
-        let coinToAddBackToList = this.state.addedCoins.filter(coin => coin.id === removeCurrency);
-        let addedCoinsUpdate = this.state.addedCoins.filter(coin => coin.id !== removeCurrency)
-        let updatedCoinList = this.state.coins;
-        updatedCoinList.push(coinToAddBackToList[0]);
-        this.setState({ coins: updatedCoinList, addedCoins: addedCoinsUpdate});
+        this.props.fetchCoins();
     }
 
     render() {
-        const { coins } = this.state;
-
         return (
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
-                <SelectCurrencyContainer coins={coins} addCurrency={this.addCurrency}/>
-                <AddedCurrenciesListContainer addedCoins={this.state.addedCoins} removeCurrency={this.removeCurrency}/>
+                <SelectCurrencyContainer />
+                <AddedCurrenciesListContainer />
             </AppDiv>
         )
     }
 };
+
+export default connect(null, actions)(App);

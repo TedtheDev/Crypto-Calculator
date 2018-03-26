@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
 import { Button } from 'semantic-ui-react';
 
 import CoinDropDownContainer from './coin_drop_down_container';
@@ -11,11 +13,11 @@ const SelectCurrencyDiv = styled.div`
     align-items: center;
 `;
 
-export default class SelectCurrencyContainer extends Component {
+class SelectCurrencyContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { selectedCurrency: ''};
+        this.state = { selectedCurrency: []};
 
         this.onChangeCoinDropDown = this.onChangeCoinDropDown.bind(this);
     }
@@ -28,8 +30,10 @@ export default class SelectCurrencyContainer extends Component {
         return (
             <SelectCurrencyDiv>
                 <CoinDropDownContainer coins={this.props.coins} onChangeCoinDropDown={this.onChangeCoinDropDown} />
-                <Button primary type="button" onClick={() => this.props.addCurrency(this.state.selectedCurrency)}>Add</Button>
+                <Button primary type="button" onClick={() => this.props.addCoins(this.state.selectedCurrency)}>Add</Button>
             </SelectCurrencyDiv>
         )
     }
 }
+
+export default connect(null, actions)(SelectCurrencyContainer);

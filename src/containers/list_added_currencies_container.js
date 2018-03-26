@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+
 import AddedCurrenciesList from '../components/list_added_currencies';
 
-export default class AddedCurrenciesListContainer extends Component {
+const AddedCurrenciesListContainerDiv = styled.div`
+    grid-area: addedCurrencies;
+`;
+
+class AddedCurrenciesListContainer extends Component {
     render() {
         return (
-            <AddedCurrenciesList addedCoins={this.props.addedCoins} removeCurrency={this.props.removeCurrency} />
+            <AddedCurrenciesListContainerDiv>
+                <AddedCurrenciesList addedCoins={this.props.coins.addedCoins} />
+            </AddedCurrenciesListContainerDiv>
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        coins: state.coins
+    }
+}
+export default connect(mapStateToProps)(AddedCurrenciesListContainer);
