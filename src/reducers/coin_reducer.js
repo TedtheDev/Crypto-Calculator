@@ -16,12 +16,9 @@ export default function(state = {coins: [], addedCoins: []}, action) {
             return { ...state, coins: [...action.payload] }
         case REMOVE_COIN:
             let coinToAddBackToList = state.addedCoins.filter(coin => coin.id === action.payload);
-            console.log('add back to list',coinToAddBackToList);
             let addedCoinsUpdate = state.addedCoins.filter(coin => coin.id !== action.payload)
             let updatedCoinList = state.coins;
-            console.log('coins', updatedCoinList);
             updatedCoinList.push(coinToAddBackToList[0]);
-            console.log(updatedCoinList);
             return { ...state, coins: updatedCoinList, addedCoins: addedCoinsUpdate};
         default:
             return state;
