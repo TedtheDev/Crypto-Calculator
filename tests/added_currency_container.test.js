@@ -45,8 +45,8 @@ describe('<AddedCurrencyContainer />', () => {
             />
         );
         */
-        expect(wrapper.find('div').at(4).children().at(0).text()).toBe('0')
+        expect(wrapper.find('div').at(4).children().at(0).text()).toBe('$0.00')
         wrapper.find('.ui .input input').simulate('change', { target: { value:2 } });
-        expect(wrapper.find('div').at(4).children().at(0).text()).toBe('200');
+        expect(wrapper.find('div').at(4).children().at(0).text()).toBe('$200.00');
     })
 });
