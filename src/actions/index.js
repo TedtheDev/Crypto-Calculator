@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     ADD_COINS,
     FETCH_COINS,
-    REMOVE_COIN
+    REMOVE_COIN,
+    TOTAL_AMOUNT_OWNED
 } from './types';
 
 const COINMARKETCAP_API_BASE_URL = 'https://api.coinmarketcap.com';
@@ -33,3 +34,11 @@ export function removeCoin(coinId) {
         dispatch({ type: REMOVE_COIN, payload: coinId });
     }
 };
+
+export function updateTotalAmountOwnedUSD(previousValue, updatedValue) {
+    console.log('action', previousValue, updatedValue)
+    return function(dispatch) {
+        console.log('dispatch!', previousValue, updatedValue)
+        dispatch({ type: TOTAL_AMOUNT_OWNED, payload: {previousValue, updatedValue}});
+    }
+}

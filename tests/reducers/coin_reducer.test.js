@@ -7,9 +7,42 @@ describe('Coin Reducer', () => {
         expect(coinReducer(undefined, {})).toEqual(
             {
                 coins: [],
-                addedCoins: []
+                addedCoins: [],
+                totalAmountOwnedUSD: 0
             }
         );
+    });
+
+    describe('TOTAL_AMOUNT_OWNED action type', () => {
+        
+        const initialState = {
+            coins: [],
+            addedCoins: [],
+            totalAmountOwnedUSD: 1000
+        };
+
+        test('should update totalAmountOwnedUSD to correct value', () => {
+            expect(
+                coinReducer(
+                    {
+                        coins: [],
+                        addedCoins: [],
+                        totalAmountOwnedUSD: 500
+                    },
+                     {
+                         type: types.TOTAL_AMOUNT_OWNED,
+                         payload: {previousValue: 100, updatedValue: 300}
+                     }
+                )
+            ).toEqual({
+                coins: [],
+                addedCoins: [],
+                totalAmountOwnedUSD: 700
+            })
+        });
+
+
+
     });
 
     describe('ADD_COINS action type', () => {
