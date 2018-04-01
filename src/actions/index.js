@@ -29,16 +29,17 @@ export function addCoins(coins) {
     }
 };
 
-export function removeCoin(coinId) {
+export function removeCoin(coinId, totalAmountOwnedUSD) {
     return function(dispatch) {
+        //update Total Amount Owned when removing a coin
+        const updatedValue = -totalAmountOwnedUSD;
+        dispatch({ type: TOTAL_AMOUNT_OWNED, payload: {previousValue: 0, updatedValue}});
         dispatch({ type: REMOVE_COIN, payload: coinId });
     }
 };
 
 export function updateTotalAmountOwnedUSD(previousValue, updatedValue) {
-    console.log('action', previousValue, updatedValue)
     return function(dispatch) {
-        console.log('dispatch!', previousValue, updatedValue)
         dispatch({ type: TOTAL_AMOUNT_OWNED, payload: {previousValue, updatedValue}});
     }
 }

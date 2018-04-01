@@ -21,7 +21,7 @@ const AddedCurrenciesDiv = styled.div`
 
 const renderCoinsList = (coins) => {
     return (
-        coins.map((coin, index) => <AddedCurrencyContainer key={index} coin={coin} />)
+        coins.map((coin, index) => <AddedCurrencyContainer key={coin.id} coin={coin} />)
     )
 };
 
