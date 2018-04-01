@@ -1,5 +1,8 @@
 # Crypto-Calculator
 
+[![Build Status](https://travis-ci.org/TedtheDev/Crypto-Calculator.svg?branch=master)](https://travis-ci.org/TedtheDev/Crypto-Calculator)
+[![Build Status](https://travis-ci.org/TedtheDev/Crypto-Calculator.svg?branch=development)](https://travis-ci.org/TedtheDev/Crypto-Calculator)
+
 Crypto-Calculator is a calculator that helps add the value of all your cryptocurrencies and gives you a total in US Dollars. 
 
 ## Getting Started
