@@ -7,7 +7,7 @@ import axios from 'axios';
 
 import CoinDropDownContainer from '../containers/coin_drop_down_container';
 import SelectCurrencyContainer from '../containers/select_currency_container';
-import AddedCurrenciesListContainer from '../containers/list_added_currencies_container';
+import AddedCurrenciesListContainer from '../containers/added_currencies_list_container';
 
 const AppDiv = styled.div`
     display: grid;
