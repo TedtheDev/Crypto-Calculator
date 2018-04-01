@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddedCurrency /> renders correctly 1`] = `
+Array [
+  <div>
+    Bitcoin
+  </div>,
+  <div
+    className="ui input"
+  >
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      placeholder="Enter Amount Owned"
+      tabIndex={undefined}
+      type="text"
+      value="5"
+    />
+  </div>,
+  <div>
+    100
+  </div>,
+  <div>
+    =
+  </div>,
+  <div>
+    <div>
+      $500.00
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      Remove
+    </button>
+  </div>,
+]
+`;

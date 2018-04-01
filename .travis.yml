@@ -1,0 +1,49 @@
+sudo: required
+
+services:
+  - docker
+
+language: node_js
+node_js:
+  - "node"
+
+script:
+  - npm install
+  - npm run build
+
+cache:
+  directories:
+    - "node_modules"
+
+after_script:
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then
+      docker build -t tedthedev/crypto-calculator:latest .;
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+      docker push tedthedev/crypto-calculator:latest;
+    fi
+  
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then
+      docker build -t tedthedev/crypto-calculator:dev .;
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+      docker push tedthedev/crypto-calculator:dev;
+    fi
+
+  - if [ "$TRAVIS_BRANCH" = "development" ]; then
+      bash travis_scripts/deploy_heroku.sh development;
+    fi
+
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then
+      bash travis_scripts/deploy_heroku.sh production;
+    fi
+  
+
+#deploy:
+  #provider: script
+  #script: bash travis_scripts/deploy.sh development
+  #on:
+   # branch: develop
+  # deploy master to production
+  #- provider: script
+    #script: bash travis_scripts/deploy.sh production
+    #on:
+      #branch: master
