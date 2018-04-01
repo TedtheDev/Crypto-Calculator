@@ -8,13 +8,15 @@ import axios from 'axios';
 import CoinDropDownContainer from '../containers/coin_drop_down_container';
 import SelectCurrencyContainer from '../containers/select_currency_container';
 import AddedCurrenciesListContainer from '../containers/added_currencies_list_container';
+import TotalAmountOwnedContainer from '../containers/total_amount_owned_container';
 
 const AppDiv = styled.div`
     display: grid;
-    grid-template: 15vh 10vh auto / 5vw auto 5vw;
+    grid-template: 15vh 10vh 5vh auto / 5vw auto 5vw;
     grid-template-areas:
         "nav nav nav"
         ". currencySelect ."
+        ". overallPortfolioStats ."
         ". addedCurrencies .";
 `;
 
@@ -40,6 +42,7 @@ class App extends Component {
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
                 <SelectCurrencyContainer />
+                <TotalAmountOwnedContainer />
                 <AddedCurrenciesListContainer />
             </AppDiv>
         )

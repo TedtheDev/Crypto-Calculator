@@ -28,7 +28,6 @@ const renderCoinsList = (coins) => {
 const AddedCurrenciesList = ({addedCoins}) => {
     return(
         <AddedCurrenciesListDiv>
-            {addedCoins.length > 0 && <TotalAmountOwnedContainer />}
             {addedCoins.length > 0 && <AddedCurrenciesDiv>{renderCoinsList(addedCoins)}</AddedCurrenciesDiv>}
         </AddedCurrenciesListDiv>
     )
