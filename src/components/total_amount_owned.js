@@ -7,7 +7,7 @@ const TotalAmountOwnedDiv = styled.div`
 
 const TotalAmountOwned = (props) => {
     return (
-        <TotalAmountOwnedDiv>Total Amount Owned: {props.total.toLocaleString('en', { style: 'currency', currency: 'USD'})}</TotalAmountOwnedDiv>
+        <TotalAmountOwnedDiv>Total Amount Owned: {Math.abs(props.total).toLocaleString('en', { style: 'currency', currency: 'USD'})}</TotalAmountOwnedDiv>
     )
 }
 
