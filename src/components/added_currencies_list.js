@@ -15,7 +15,8 @@ const AddedCurrenciesListDiv = styled.div`
 const AddedCurrenciesDiv = styled.div`
     grid-area: addedCurrencies;
     display: grid;
-    grid-template: auto / 1fr 1fr 1fr 1fr 1fr;
+    grid-template: 5vh auto / 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
 
 `;
 
@@ -31,10 +32,10 @@ const renderCoinsList = (coins) => {
             <div>
                 <strong>Price per Coin</strong>
             </div>
-            <div></div>
             <div>
-                <strong>Total Amount Owned Per Coin</strong>
+                <strong>Total Per Coin</strong>
             </div>
+            <div></div>
             {coins.map((coin, index) => <AddedCurrencyContainer key={coin.id} coin={coin} />)}
         </AddedCurrenciesDiv>
     )

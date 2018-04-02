@@ -14,12 +14,12 @@ class AddedCurrencyContainer extends Component {
     }
 
     onChangeAmountOwned(event) {
-        if(!isNaN(event.target.value)) {
+        //if(!isNaN(event.target.value)) {
             const previousValue = (event.target.defaultValue || Number(event.target.defaultValue)) * Number(this.props.coin.price_usd);
             const updatedValue = Number(event.target.value) * Number(this.props.coin.price_usd);
             this.props.updateTotalAmountOwnedUSD(previousValue, updatedValue);
             this.setState({amountOwned: Number(event.target.value)});
-        }
+        //}
     }
 
     render() {

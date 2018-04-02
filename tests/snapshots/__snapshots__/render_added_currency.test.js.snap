@@ -18,15 +18,12 @@ Array [
     />
   </div>,
   <div>
-    100
+    $100.00
   </div>,
   <div>
-    =
+    $500.00
   </div>,
   <div>
-    <div>
-      $500.00
-    </div>
     <button
       onClick={[Function]}
     >
