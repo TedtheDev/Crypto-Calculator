@@ -21,14 +21,29 @@ const AddedCurrenciesDiv = styled.div`
 
 const renderCoinsList = (coins) => {
     return (
-        coins.map((coin, index) => <AddedCurrencyContainer key={coin.id} coin={coin} />)
+        <AddedCurrenciesDiv>
+            <div>
+                <strong>Coin Name</strong>
+            </div>
+            <div>
+                <strong>Amount Owned (Coin Count)</strong>
+            </div>
+            <div>
+                <strong>Price per Coin</strong>
+            </div>
+            <div></div>
+            <div>
+                <strong>Total Amount Owned Per Coin</strong>
+            </div>
+            {coins.map((coin, index) => <AddedCurrencyContainer key={coin.id} coin={coin} />)}
+        </AddedCurrenciesDiv>
     )
 };
 
 const AddedCurrenciesList = ({addedCoins}) => {
     return(
         <AddedCurrenciesListDiv>
-            {addedCoins.length > 0 && <AddedCurrenciesDiv>{renderCoinsList(addedCoins)}</AddedCurrenciesDiv>}
+            {addedCoins.length > 0 && renderCoinsList(addedCoins)}
         </AddedCurrenciesListDiv>
     )
 }

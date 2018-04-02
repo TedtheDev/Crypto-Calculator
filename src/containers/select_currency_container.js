@@ -9,7 +9,8 @@ import CoinDropDownContainer from './coin_drop_down_container';
 const SelectCurrencyDiv = styled.div`
     grid-area: currencySelect;
     display: grid;
-    grid-template: auto / 80% 20%;
+    grid-template: auto / 70% 20%;
+    grid-column-gap: 5%;
     align-items: center;
 `;
 

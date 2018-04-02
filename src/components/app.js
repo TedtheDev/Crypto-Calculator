@@ -12,7 +12,7 @@ import TotalAmountOwnedContainer from '../containers/total_amount_owned_containe
 
 const AppDiv = styled.div`
     display: grid;
-    grid-template: 15vh 10vh 5vh auto / 5vw auto 5vw;
+    grid-template: 10vh 10vh 5vh 65vh / 5vw auto 5vw;
     grid-template-areas:
         "nav nav nav"
         ". currencySelect ."
@@ -24,6 +24,7 @@ const Title = styled.h1`
     grid-area: nav;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 class App extends Component {

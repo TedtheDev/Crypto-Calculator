@@ -6,6 +6,7 @@ import AddedCurrenciesList from '../components/added_currencies_list';
 
 const AddedCurrenciesListContainerDiv = styled.div`
     grid-area: addedCurrencies;
+    overflow-y: auto;
 `;
 
 class AddedCurrenciesListContainer extends Component {
