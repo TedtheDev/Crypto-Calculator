@@ -3,7 +3,8 @@ import {
     ADD_COINS,
     FETCH_COINS,
     REMOVE_COIN,
-    TOTAL_AMOUNT_OWNED
+    TOTAL_AMOUNT_OWNED,
+    TOTAL_AMOUNT_INVESTED
 } from './types';
 
 const COINMARKETCAP_API_BASE_URL = 'https://api.coinmarketcap.com';
@@ -41,5 +42,11 @@ export function removeCoin(coinId, totalAmountOwnedUSD) {
 export function updateTotalAmountOwnedUSD(previousValue, updatedValue) {
     return function(dispatch) {
         dispatch({ type: TOTAL_AMOUNT_OWNED, payload: {previousValue, updatedValue}});
+    }
+}
+
+export function updateTotalAmountInvested(amount) {
+    return function(dispatch) {
+        dispatch({ type: TOTAL_AMOUNT_INVESTED, payload: amount})
     }
 }

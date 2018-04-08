@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TotalAmountOwnedDiv = styled.div`
-    grid-area: overallPortfolioStats;
+    
 `;
 
 const TotalAmountOwned = (props) => {

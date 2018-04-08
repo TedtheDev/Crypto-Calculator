@@ -8,7 +8,7 @@ import axios from 'axios';
 import CoinDropDownContainer from '../containers/coin_drop_down_container';
 import SelectCurrencyContainer from '../containers/select_currency_container';
 import AddedCurrenciesListContainer from '../containers/added_currencies_list_container';
-import TotalAmountOwnedContainer from '../containers/total_amount_owned_container';
+import OverallPortfolioStatsContainer from '../containers/overall_portfolio_stats_container';
 
 const AppDiv = styled.div`
     display: grid;
@@ -43,7 +43,7 @@ class App extends Component {
             <AppDiv>
                 <Title>hello from crypto calculator</Title>
                 <SelectCurrencyContainer />
-                <TotalAmountOwnedContainer />
+                <OverallPortfolioStatsContainer />
                 <AddedCurrenciesListContainer />
             </AppDiv>
         )

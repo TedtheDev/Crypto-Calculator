@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import AddedCurrencyContainer from '../containers/added_currency_container';
-import TotalAmountOwnedContainer from '../containers/total_amount_owned_container';
 
 const AddedCurrenciesListDiv = styled.div`
     display: grid;
@@ -17,7 +16,6 @@ const AddedCurrenciesDiv = styled.div`
     display: grid;
     grid-template: 5vh auto / 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
-
 `;
 
 const renderCoinsList = (coins) => {

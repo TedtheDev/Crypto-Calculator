@@ -6,7 +6,7 @@ const AddedCurrency = ({coin, amountOwned, onChangeAmountOwned, removeCoin}) => 
     // coin price in USD multiply amount owned to get totalAmountOwned in USD per coin
     const totalAmountOwnedUSD = Number(coin.price_usd) * Number(amountOwned);
     // convert price_usd to a nice dollar value that is rounded
-    const coinPriceUSD = Number(coin.price_usd).toLocaleString('en', { style: 'currency', currency: 'USD'})
+    const coinPriceUSD = Number(coin.price_usd).toLocaleString('en', { style: 'currency', currency: 'USD'});
 
     return [
         <div key={coin.name}>{coin.name}</div>,
