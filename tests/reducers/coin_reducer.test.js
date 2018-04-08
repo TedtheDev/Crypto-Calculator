@@ -8,19 +8,38 @@ describe('Coin Reducer', () => {
             {
                 coins: [],
                 addedCoins: [],
-                totalAmountOwnedUSD: 0
+                totalAmountOwnedUSD: 0,
+                totalAmountInvestedUSD: 0
             }
         );
     });
 
-    describe('TOTAL_AMOUNT_OWNED action type', () => {
-        
-        const initialState = {
-            coins: [],
-            addedCoins: [],
-            totalAmountOwnedUSD: 1000
-        };
+    describe('TOTAL_AMOUNT_INVESTED action type', () => {
+        test('should update totalAmountInvestedUSD from 0 to 4000', () => {
+            expect(
+                coinReducer(
+                    {
+                        coins: [],
+                        addedCoins: [],
+                        totalAmountOwnedUSD: 1000,
+                        totalAmountInvestedUSD: 0
+                    },
+                    {
+                        type: types.TOTAL_AMOUNT_INVESTED,
+                        payload: 4000
+                    }
+                )
+            ).toEqual({
+                coins: [],
+                addedCoins: [],
+                totalAmountOwnedUSD: 1000,
+                totalAmountInvestedUSD: 4000
+            })
+        });
 
+    });
+
+    describe('TOTAL_AMOUNT_OWNED action type', () => {
         test('should update totalAmountOwnedUSD to correct value', () => {
             expect(
                 coinReducer(
@@ -29,10 +48,10 @@ describe('Coin Reducer', () => {
                         addedCoins: [],
                         totalAmountOwnedUSD: 500
                     },
-                     {
-                         type: types.TOTAL_AMOUNT_OWNED,
-                         payload: {previousValue: 100, updatedValue: 300}
-                     }
+                    {
+                        type: types.TOTAL_AMOUNT_OWNED,
+                        payload: {previousValue: 100, updatedValue: 300}
+                    }
                 )
             ).toEqual({
                 coins: [],
@@ -40,9 +59,6 @@ describe('Coin Reducer', () => {
                 totalAmountOwnedUSD: 700
             })
         });
-
-
-
     });
 
     describe('ADD_COINS action type', () => {
