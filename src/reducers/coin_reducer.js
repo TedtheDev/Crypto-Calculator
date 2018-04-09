@@ -3,7 +3,8 @@ import {
     FETCH_COINS,
     REMOVE_COIN,
     TOTAL_AMOUNT_OWNED,
-    TOTAL_AMOUNT_INVESTED
+    TOTAL_AMOUNT_INVESTED,
+    LOAD_PORTFOLIO_DATA
 } from '../actions/types';
 
 export default function(state = {coins: [], addedCoins: [], totalAmountOwnedUSD: 0, totalAmountInvestedUSD: 0}, action) {
@@ -27,6 +28,9 @@ export default function(state = {coins: [], addedCoins: [], totalAmountOwnedUSD:
             return { ...state, totalAmountOwnedUSD: totalValue }
         case TOTAL_AMOUNT_INVESTED:
             return { ...state, totalAmountInvestedUSD: action.payload}
+        case LOAD_PORTFOLIO_DATA:
+            
+            return { ...state, ...action.payload};
         default:
             return state;
     }
