@@ -14,6 +14,33 @@ describe('Coin Reducer', () => {
         );
     });
 
+    describe('LOAD_PORTFOLIO_DATA action type', () => {
+        test('should load saved portfolio data from localstorage', () => {
+            expect(
+                coinReducer(
+                    {
+                        coins: [],
+                        addedCoins: [],
+                        totalAmountOwnedUSD: 0,
+                        totalAmountInvestedUSD: 0,
+                        totalAmountInvestedUSD: 0,
+                    },
+                    {
+                        type: types.LOAD_PORTFOLIO_DATA,
+                        payload: {addedCoins: [{id: 'ethereum', name:'Ethereum', price_usd: '300'}], totalAmountInvestedUSD: 4568}
+                    }
+                )
+            ).toEqual(
+                {
+                    coins: [],
+                    addedCoins: [{id: 'ethereum', name:'Ethereum', price_usd: '300'}],
+                    totalAmountOwnedUSD: 0,
+                    totalAmountInvestedUSD: 4568
+                }
+            );
+        });
+    });
+
     describe('TOTAL_AMOUNT_INVESTED action type', () => {
         test('should update totalAmountInvestedUSD from 0 to 4000', () => {
             expect(
@@ -34,7 +61,7 @@ describe('Coin Reducer', () => {
                 addedCoins: [],
                 totalAmountOwnedUSD: 1000,
                 totalAmountInvestedUSD: 4000
-            })
+            });
         });
 
     });
