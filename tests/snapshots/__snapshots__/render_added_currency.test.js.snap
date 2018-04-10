@@ -25,9 +25,25 @@ Array [
   </div>,
   <div>
     <button
+      className="ui fade animated button"
+      disabled={undefined}
       onClick={[Function]}
+      role="button"
+      tabIndex={undefined}
     >
-      Remove
+      <div
+        className="visible content"
+      >
+        Remove
+      </div>
+      <div
+        className="hidden content"
+      >
+        <i
+          aria-hidden="true"
+          className="delete icon"
+        />
+      </div>
     </button>
   </div>,
 ]
