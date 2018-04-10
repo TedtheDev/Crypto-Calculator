@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
+import { Input, Button, Icon } from 'semantic-ui-react';
 
 const AddedCurrency = ({coin, amountOwned, onChangeAmountOwned, removeCoin}) => {
 
@@ -13,7 +13,14 @@ const AddedCurrency = ({coin, amountOwned, onChangeAmountOwned, removeCoin}) => 
         <Input key={`${coin.name}-amount`} placeholder="Enter Amount Owned" onChange={onChangeAmountOwned} value={amountOwned.toString()}></Input>,
         <div key={`${coin.name}-price`}>{coinPriceUSD}</div>,
         <div key={`${coin.name}-total`}>{totalAmountOwnedUSD.toLocaleString('en', { style: 'currency', currency: 'USD'})}</div>,
-        <div key={`${coin.name}-remove`}><button onClick={() => removeCoin(coin.id, Number(coin.price_usd) * Number(amountOwned))}>Remove</button></div>
+        <div key={`${coin.name}-remove`}>
+            <Button animated="fade" onClick={() => removeCoin(coin.id, Number(coin.price_usd) * Number(amountOwned))}>
+                <Button.Content visible>Remove</Button.Content>
+                <Button.Content hidden>
+                    <Icon name='delete' />
+                </Button.Content>
+            </Button>
+        </div>
     ]
 };
 
