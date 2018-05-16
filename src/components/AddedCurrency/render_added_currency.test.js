@@ -1,5 +1,5 @@
 import React from 'react';
-import AddedCurrency from '../../src/components/added_currency';
+import AddedCurrency from './added_currency';
 import renderer from 'react-test-renderer'
 
 test('<AddedCurrency /> renders correctly', () => {

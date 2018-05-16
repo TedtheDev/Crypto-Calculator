@@ -1,5 +1,5 @@
 import React from 'react';
-import CoinDropDown from '../../src/components/coin_drop_down';
+import CoinDropDown from './coin_drop_down';
 import renderer from 'react-test-renderer';
 
 test('Coin Drop Down renders correctly', () => {

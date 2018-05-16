@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import CoinDropDown from '../src/components/coin_drop_down';
+import CoinDropDown from './coin_drop_down';
 
 Enzyme.configure({ adapter: new Adapter() });
 

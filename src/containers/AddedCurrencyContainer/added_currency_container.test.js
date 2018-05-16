@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import AddedCurrencyCointainer from '../src/containers/added_currency_container';
+import AddedCurrencyCointainer from './added_currency_container';
 
 Enzyme.configure({ adapter: new Adapter() });
 
