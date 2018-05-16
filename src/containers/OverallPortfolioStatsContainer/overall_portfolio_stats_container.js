@@ -60,4 +60,5 @@ const mapStateToProps = (state) => {
         coins: state.coins
     }
 }
+
 export default connect(mapStateToProps, actions)(OverallPortfolioStatsContainer);
