@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import AddedCurrenciesList from '../components/added_currencies_list';
+import AddedCurrenciesList from '../../components/AddedCurrenciesList/added_currencies_list';
 
 const AddedCurrenciesListContainerDiv = styled.div`
     grid-area: addedCurrencies;

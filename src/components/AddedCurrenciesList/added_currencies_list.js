@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import AddedCurrencyContainer from '../containers/added_currency_container';
+import AddedCurrencyContainer from '../../containers/AddedCurrencyContainer/added_currency_container';
 
 const AddedCurrenciesListDiv = styled.div`
     display: grid;

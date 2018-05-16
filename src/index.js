@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import { LOAD_PORTFOLIO_DATA, ADD_COINS } from './actions/types';
 
-import App from './components/app';
+import App from './components/App/app';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

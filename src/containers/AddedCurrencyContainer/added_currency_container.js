@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/index';
+import * as actions from '../../actions/index';
 
-import AddedCurrency from '../components/added_currency';
+import AddedCurrency from '../../components/AddedCurrency/added_currency';
 
 class AddedCurrencyContainer extends Component {
     constructor(props) {

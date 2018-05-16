@@ -2,7 +2,7 @@ import React, { component, Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import CoinDropDown from '../components/coin_drop_down';
+import CoinDropDown from '../../components/CoinDropDown/coin_drop_down';
 
 const Wrapper = styled.div`
 

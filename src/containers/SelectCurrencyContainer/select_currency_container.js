@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as actions from '../actions/index';
+import * as actions from '../../actions/index';
 import { Button } from 'semantic-ui-react';
 
-import CoinDropDownContainer from './coin_drop_down_container';
+import CoinDropDownContainer from './../CoinDropDownContainer/coin_drop_down_container';
 
 const SelectCurrencyDiv = styled.div`
     grid-area: currencySelect;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import SavePortfolioData from '../components/save_portfolio_data';
+import SavePortfolioData from '../../components/SavePortfolioData/save_portfolio_data';
 
 class SavePortfolioDataContainer extends Component {
     constructor(props) {
