@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import TotalAmountOwned from '../../components/TotalAmountOwned/total_amount_owned';
 import TotalAmountInvested from '../../components/TotalAmountInvested/total_amount_invested';
 import TotalNetProfit from '../../components/TotalNetProfit/total_net_profit';
-import SavePortfolioDataContainer from '../SavePortfolioDataContainer/save_portfolio_data_container';
+import SavePortfolioDataContainer from '../SavePortfolioDataContainer_/save_portfolio_data_container';
 
 const StatsDiv = styled.div`
     grid-area: overallPortfolioStats;
