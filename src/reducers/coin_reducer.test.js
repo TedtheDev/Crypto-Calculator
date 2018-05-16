@@ -1,5 +1,5 @@
-import coinReducer from '../../src/reducers/coin_reducer';
-import * as types from '../../src/actions/types';
+import coinReducer from './coin_reducer';
+import * as types from '../actions/types';
 
 describe('Coin Reducer', () => {
     
