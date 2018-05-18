@@ -14,7 +14,7 @@ const AddedCurrenciesListDiv = styled.div`
 const AddedCurrenciesDiv = styled.div`
     grid-area: addedCurrencies;
     display: grid;
-    grid-template: 5vh auto / 1fr 1fr 1fr 1fr 1fr;
+    grid-template: 5vh auto / repeat(auto-fill, minmax(200px, 1fr));
     justify-items: center;
 `;
 

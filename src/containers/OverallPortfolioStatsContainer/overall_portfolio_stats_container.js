@@ -11,7 +11,7 @@ import SavePortfolioDataContainer from '../SavePortfolioDataContainer/save_portf
 const StatsDiv = styled.div`
     grid-area: overallPortfolioStats;
     display: grid;
-    grid-template: 100% / 1fr 1fr 1fr 1fr;
+    grid-template: 1fr / repeat(auto-fill, minmax(200px,1fr));
 `;
 
 class OverallPortfolioStatsContainer extends Component {

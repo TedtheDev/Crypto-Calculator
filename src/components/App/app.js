@@ -12,7 +12,7 @@ import OverallPortfolioStatsContainer from '../../containers/OverallPortfolioSta
 
 const AppDiv = styled.div`
     display: grid;
-    grid-template: 10vh 10vh 5vh 65vh / 5vw auto 5vw;
+    grid-template: 10% 10% 15% 50% 15% / 5% 90% 5%;
     grid-template-areas:
         "nav nav nav"
         ". currencySelect ."
